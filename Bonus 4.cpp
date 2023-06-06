@@ -43,12 +43,12 @@ public:
 int main() {
     CSVReader reader;
 
-    std::vector<std::vector<std::string>> data = reader.readCSV("D:\\fmi 1.2\\oop\\Bonus 4\\mnist_test.csv");
-    // Prepare trainset and labels
+    std::vector<std::vector<std::string>> data = reader.readCSV("/home/calina/Desktop/facultate/OOP/Bonus4_OOP/mnist_test.csv");
+    //prepare trainset and labels
     vector<vector<double>> trainset;
     vector<int> labels;
 
-    // Convert data from string to double
+    //convert data from string to double
     for (const auto& row : data) {
         std::vector<double> rowValues;
         for (const auto& value : row) {
@@ -64,7 +64,7 @@ int main() {
         labels.push_back(static_cast<int>(rowValues.back()));  // Assuming the last column is the label
     }
 
-        // Initialize and train the KnnClassifier
+        //initialize and train the KnnClassifier
         KnnClassifier knnClassifier(5, true);  // k = 5, normalize = true
         knnClassifier.fit(trainset, labels);
 
@@ -88,11 +88,11 @@ int main() {
         NaiveBayes naiveBayes;
         naiveBayes.fit(train_X, train_Y);
 
-        // Perform classification using NaiveBayes classifier
-        Matrix test_X(testset);  // Convert testset to Matrix format
+        //perform classification using NaiveBayes classifier
+        Matrix test_X(testset);  //convert testset to Matrix format
         Matrix naiveBayesPredictions = naiveBayes.predict(test_X);
 
-        // Print the predictions
+        //print the predictions
         cout << "KnnClassifier Predictions: ";
         for (int prediction: knnPredictions) {
             cout << prediction << " ";

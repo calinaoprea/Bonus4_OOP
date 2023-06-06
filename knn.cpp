@@ -6,6 +6,7 @@
 #include <map>
 #include <cmath>
 #include <iostream>
+#include <climits>
 
 KnnClassifier::KnnClassifier(int k_, bool normalize_):k(k_), normalize(normalize_){}
 
